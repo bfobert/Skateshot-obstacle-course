@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class FPSInput : MonoBehaviour {
 	public float maxSpeed;
 	public float acceleration;
+	public float horizSpeed;
 	public float gravity;
 	public float vertSpeed;
 	public float jumpSpeed;
+	public bool hasTeleported;
 
 	private CharacterController charController;
 
 	void Start() {
 		charController = GetComponent<CharacterController>();
+		hasTeleported = false;
 	}
 
 	void Update() {
@@ -25,8 +29,10 @@ public class FPSInput : MonoBehaviour {
 			}
 		}
 
+		acceleration = Mathf.Clamp (acceleration, 0f, 30f);
+
 		//Controls speed of the player as well as gravity
-		float deltaX = Input.GetAxis ("Horizontal") * 0.7f * acceleration;
+		float deltaX = Input.GetAxis ("Horizontal") * horizSpeed;
 		float deltaZ = Input.GetAxis ("Vertical") * acceleration;
 		Vector3 movement = new Vector3 (deltaX, vertSpeed, deltaZ);
 		movement.x = Mathf.Clamp (movement.x, deltaX, deltaX);
@@ -41,7 +47,7 @@ public class FPSInput : MonoBehaviour {
 
 		//Skate-like movement, slows player if they try to switch directions quickly
 		if (Input.GetAxis ("Horizontal") == 0 && Input.GetAxis ("Vertical") == 0 && acceleration > .6f) {
-			acceleration -= 5f;
+			acceleration -= 1f;
 		}
 
 		//Causes "gravity" when jumping
@@ -50,5 +56,11 @@ public class FPSInput : MonoBehaviour {
 				vertSpeed += gravity;
 			} 
 		}
+	}
+	public IEnumerator CheckTeleport(){
+		Debug.Log ("hello world");
+		hasTeleported = true;
+		yield return new WaitForSeconds (3);
+		hasTeleported = false;
 	}
 }

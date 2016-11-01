@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{69F53EF2-6840-9001-0411-BC5E53B761F8}</ProjectGuid>
+    <ProjectGuid>{ED757EBD-215C-70A5-9025-AE5A8EFAE356}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\FPSInput.cs" />
      <Compile Include="Assets\Scripts\FPSInput1.cs" />
      <Compile Include="Assets\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\Portal.cs" />
      <Compile Include="Assets\Scripts\RayShooter.cs" />
      <Compile Include="Assets\Scripts\SphereShooter.cs" />
      <Compile Include="Assets\Scripts\TurretBullet.cs" />

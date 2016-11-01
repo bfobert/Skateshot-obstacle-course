@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour {
@@ -21,6 +22,8 @@ public class Controller : MonoBehaviour {
 	void Start(){
 		resetGO = GameObject.FindGameObjectWithTag ("Reset");
 		resetGO.SetActive (false);
+
+
 	}
 	// When there are no more targets we are spawning 4 more 
 	void Update () {
