@@ -4,7 +4,7 @@ using System.Collections;
 public class FPSInput : MonoBehaviour {
 	public float maxSpeed = 22.0f;
 	public float acceleration = 0f;
-	public float gravity = -9.8f;
+	public float gravity = -20f;
 	public float vertSpeed = 0f;
 	public float jumpSpeed = 200f;
 
@@ -16,7 +16,7 @@ public class FPSInput : MonoBehaviour {
 	//Controls speed of the player as well as gravity
 	void Update() {
 		if (charController.isGrounded) {
-			gravity = -9.8f;
+			gravity = -20f;
 			if (Input.GetButtonDown ("Jump")) {
 				vertSpeed = jumpSpeed;
 			}
@@ -28,15 +28,18 @@ public class FPSInput : MonoBehaviour {
 		movement *= Time.deltaTime;
 		movement = transform.TransformDirection(movement);
 		charController.Move(movement);
-		if (acceleration < maxSpeed  && acceleration != 0) {
+		if (acceleration < maxSpeed) {
 			acceleration += .2f;
 		}
-		if (Input.GetAxis ("Horizontal") == 0 && Input.GetAxis ("Vertical") == 0 && acceleration > 0) {
-			acceleration -= .6f;
+
+		if (Input.GetAxis ("Horizontal") == 0 && Input.GetAxis ("Vertical") == 0 && acceleration > .6f) {
+				acceleration -= .6f;
+			
 		}
-		if (vertSpeed > -10f) {
+		if (vertSpeed > 10f) {
 			vertSpeed += gravity;
-			gravity = gravity * .925f;
+//			gravity = gravity * 1.3f;
 		}
+
 	}
 }
