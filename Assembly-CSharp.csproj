@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Controller.cs" />
      <Compile Include="Assets\Scripts\EndOpen.cs" />
      <Compile Include="Assets\Scripts\FPSInput.cs" />
+     <Compile Include="Assets\Scripts\FPSInput1.cs" />
      <Compile Include="Assets\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\RayShooter.cs" />
      <Compile Include="Assets\Scripts\SphereShooter.cs" />
