@@ -58,7 +58,6 @@ public class FPSInput : MonoBehaviour {
 		}
 	}
 	public IEnumerator CheckTeleport(){
-		Debug.Log ("hello world");
 		hasTeleported = true;
 		yield return new WaitForSeconds (3);
 		hasTeleported = false;
